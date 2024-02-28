@@ -5,10 +5,9 @@ except ImportError:
     from ex_5_0 import line_count
 
 
-def main(infile):
-    """Call line_count with the infile argument."""
-    line_count(infile)
-
+    def main(infile):
+        """Call line_count with the infile argument."""
+        line_count(infile)
 
 if __name__ == "__main__":
     # Create your argument parser object here.
