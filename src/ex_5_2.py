@@ -15,11 +15,17 @@ except ImportError:
 
 
 if __name__ == "__main__":
+    import os
 
     # Use these predefined input / output files
     root_dir = get_repository_root()
     INFILE = root_dir / "data" / "ex_5_2-data.csv"
     OUTFILE = root_dir / "outputs" / "ex_5_2-processed.csv"
+    raw_data = np.loadtxt(INFILE)
+    normed = (raw_data - raw_data.mean(axis=0)) / raw_data.std(axis=0)
+    processed = normed
+    os.makedirs(root_dir / "output", exist_ok=True)
+    np.savetxt(OUTFILE, processed, fmt='%.2e')
 
     # Complete the data processing steps using numpy here.
 
